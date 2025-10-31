@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jeremie Salonga | Portfolio</title>
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   />
 
   <style>
-    /* ====== GENERAL ====== */
+    /* ====== GENERAL STYLES ====== */
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
@@ -20,69 +20,99 @@
       margin: 0;
       padding: 0;
       transition: background 0.5s ease;
+      overflow-x: hidden;
     }
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      padding: 40px 50px;
-    }
-
-    h1, h2, h3 {
+    header {
       text-align: center;
-      color: #007bff;
-      margin-bottom: 15px;
+      padding: 25px 20px;
+      background-color: #007bff;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    p {
-      line-height: 1.6;
+    header h1 {
+      margin: 5px 0;
+      font-size: 2em;
+    }
+
+    header p {
+      font-size: 0.95em;
+      opacity: 0.9;
     }
 
     /* ====== NAVIGATION BAR ====== */
     nav {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      flex-wrap: wrap;
+      gap: 15px;
       background: #f8f9fa;
-      padding: 15px 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
-    nav a {
+    .nav-link {
       text-decoration: none;
       color: #333;
       font-weight: 600;
-      padding: 8px 15px;
+      padding: 10px 18px;
       border-radius: 8px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
-    nav a:hover,
-    nav a.active {
+    .nav-link:hover,
+    .nav-link.active {
       background-color: #007bff;
       color: #fff;
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 25px;
+      font-size: 1.8em;
     }
 
     /* ====== PROFILE SECTION ====== */
     .profile-info {
       text-align: center;
-      margin-top: 30px;
     }
 
     #profilePic {
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
       object-fit: cover;
       box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-      cursor: pointer;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     #profilePic:hover {
@@ -96,42 +126,39 @@
       margin-top: 8px;
     }
 
-    #uploadInput {
-      display: none;
-    }
-
     .profile-text {
-      margin-top: 20px;
-      text-align: center;
+      max-width: 700px;
+      margin: 25px auto;
+      line-height: 1.7;
     }
 
     /* ====== BADGES ====== */
     .badges-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
       justify-content: center;
-      margin-top: 40px;
+      gap: 40px;
+      margin-top: 30px;
     }
 
     .badges-group {
       flex: 1;
-      min-width: 250px;
+      min-width: 280px;
     }
 
     .badges-group h3 {
-      margin-bottom: 15px;
-      color: #007bff;
       text-align: center;
+      color: #007bff;
+      margin-bottom: 15px;
     }
 
     .badges-list {
-      list-style: none;
-      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
       justify-content: center;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
     }
 
     .badge {
@@ -156,7 +183,7 @@
       box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     }
 
-    /* ====== PROJECTS & SOCIAL ====== */
+    /* ====== PROJECTS SECTION ====== */
     article {
       background: #f8f9fa;
       padding: 20px;
@@ -171,68 +198,81 @@
     }
 
     article a {
+      display: inline-block;
+      margin-top: 10px;
       color: #007bff;
-      text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
+    article a:hover {
+      color: #0056b3;
+    }
+
+    /* ====== SOCIAL LINKS ====== */
     .social-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
     }
 
     .social-links a {
-      color: #007bff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border: 1.5px solid #007bff;
-      border-radius: 8px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 600;
-      transition: 0.3s;
+      text-decoration: none;
+      color: #007bff;
+      background: #f1f3f5;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
     .social-links a:hover {
       background: #007bff;
       color: #fff;
       transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
     }
 
     /* ====== CONTACT FORM ====== */
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
+      max-width: 600px;
+      margin: auto;
     }
 
-    input, textarea {
+    input,
+    textarea {
       padding: 12px;
-      border-radius: 8px;
+      margin-top: 8px;
       border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
       font-family: inherit;
-      transition: 0.3s;
     }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
       border-color: #007bff;
       outline: none;
     }
 
     button {
-      background: linear-gradient(45deg, #007bff, #00c6ff);
-      color: #fff;
+      margin-top: 15px;
       padding: 12px;
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: 600;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
     }
 
     button:hover {
@@ -240,51 +280,48 @@
       transform: translateY(-2px);
     }
 
-    /* ====== SECTIONS ====== */
-    section {
-      display: none;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     footer {
       text-align: center;
-      margin: 30px 0;
-      color: #777;
+      margin: 50px 0 20px;
+      color: #666;
     }
 
+    /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       main {
-        padding: 25px;
+        margin: 20px;
+        padding: 20px;
+      }
+      .badges-section {
+        flex-direction: column;
+        gap: 20px;
       }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <h1>Jeremie Salonga</h1>
+    <p>INFP • Dreamer • Visionary • IT Student</p>
+  </header>
+
   <nav>
-    <a href="#" class="active" data-section="profile">Profile</a>
-    <a href="#" data-section="projects">Projects</a>
-    <a href="#" data-section="social">Social</a>
-    <a href="#" data-section="contact">Contact</a>
+    <a href="#" class="nav-link active" data-section="profile">Profile</a>
+    <a href="#" class="nav-link" data-section="projects">Projects</a>
+    <a href="#" class="nav-link" data-section="social">Social Media</a>
+    <a href="#" class="nav-link" data-section="contact">Contact</a>
   </nav>
 
   <main>
     <!-- Profile Section -->
-    <section id="profile" class="active">
+    <section id="profile" class="section active">
       <h2>My Profile</h2>
       <div class="profile-info">
         <label for="uploadInput">
           <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
         </label>
-        <input type="file" id="uploadInput" accept="image/*" />
+        <input type="file" id="uploadInput" accept="image/*" style="display:none;">
         <div class="upload-hint">Click to change photo</div>
 
         <div class="profile-text">
@@ -300,21 +337,25 @@
           <ul class="badges-list">
             <li class="badge"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
             <li class="badge"><i class="fas fa-laptop"></i> Computer Literate</li>
+            <li class="badge"><i class="fas fa-brain"></i> Problem Solving</li>
+            <li class="badge"><i class="fas fa-users"></i> Leadership</li>
           </ul>
         </div>
+
         <div class="badges-group">
           <h3>My Personality</h3>
           <ul class="badges-list">
             <li class="badge"><i class="fas fa-star"></i> Idealistic</li>
             <li class="badge"><i class="fas fa-heart"></i> Kind-Hearted</li>
             <li class="badge"><i class="fas fa-sun"></i> Optimistic</li>
+            <li class="badge"><i class="fas fa-lightbulb"></i> Thoughtful</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="section">
       <h2>My Projects</h2>
       <article>
         <h3>Project 1: [Project Name]</h3>
@@ -329,49 +370,57 @@
     </section>
 
     <!-- Social Media Section -->
-    <section id="social">
-      <h2>My Social Media</h2>
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-x-twitter"></i> X</a>
-        <a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      </div>
+    <section id="social" class="section">
+      <h2>My Social Media Accounts</h2>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-x-twitter"></i> X</a></li>
+        <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      </ul>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="section">
       <h2>Contact Me</h2>
       <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+
         <button type="submit">Send Message</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Jeremie Salonga. All rights reserved.</p>
+    <p>&copy; 2025 Jeremie Salonga. All rights reserved.</p>
   </footer>
 
   <script>
     // Navigation switching
-    const navLinks = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll(".section");
+
+    function showSection(sectionId) {
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+
+      navLinks.forEach(link => link.classList.remove("active"));
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
+    }
 
     navLinks.forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
-        const sectionId = link.getAttribute("data-section");
-
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.getElementById(sectionId).classList.add("active");
-
-        navLinks.forEach(nav => nav.classList.remove("active"));
-        link.classList.add("active");
+        showSection(link.getAttribute("data-section"));
       });
     });
 
