@@ -1,3 +1,5 @@
+<!-- Rebuild Trigger: minor edit for GitHub Pages deployment -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +11,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-  <!-- NAVIGATION BAR -->
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <h2 class="logo">Jeremie<span>Salonga</span></h2>
     <ul class="nav-links" id="navLinks">
@@ -18,100 +19,47 @@
       <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
       <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="menu-btn" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
   </nav>
 
-  <!-- HEADER SECTION -->
-  <header>
-    <div class="container fade-in">
-      <img src="your-profile.jpg" alt="Jeremie Salonga" class="profile-pic" />
-      <h1>Jeremie Salonga</h1>
-      <p class="tagline">Dreamer | Visionary | Creative Technologist</p>
-      <div class="social-links">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="content">
+      <h1>Hello, I'm <span>Jeremie 👋</span></h1>
+      <p>Welcome to my personal portfolio website!</p>
+      <a href="#projects" class="btn">See My Work</a>
     </div>
-  </header>
+  </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section fade-in">
+  <!-- About Section -->
+  <section id="about" class="about">
     <h2>About Me</h2>
-    <p>
-      Hi! I'm Jeremie — a passionate creative and aspiring technologist. 
-      I love blending technology and storytelling to create meaningful digital experiences.
-      I’m currently studying IT and exploring how design, innovation, and purpose intersect.
-    </p>
+    <p>I'm Jeremie Salonga, an aspiring IT professional and creative mind passionate about technology and design.</p>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="section fade-in">
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
     <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>INTERNMIZING</h3>
-        <p>A mobile-based internship management system for PUP San Juan Campus.</p>
-      </div>
-      <div class="project-card">
-        <h3>SineSintangLIKHA</h3>
-        <p>A short film festival project highlighting stories of youth and community.</p>
-      </div>
-      <div class="project-card">
-        <h3>GVSG Creative Labs</h3>
-        <p>A multimedia agency focused on creating visual storytelling experiences.</p>
-      </div>
-    </div>
+    <p>Coming soon... 🚀</p>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section fade-in contact">
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <p>Let’s collaborate or talk about creative ideas!</p>
-    <a href="mailto:jeremie@email.com" class="contact-btn">Send a Message</a>
+    <p>Let's connect! Reach me via <strong>theycallmejem@gmail.com</strong></p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Jeremie Salonga. All rights reserved.</p>
+    <p>© 2025 Jeremie Salonga | Built with ❤️</p>
   </footer>
 
-  <!-- SMOOTH SCROLL, ANIMATION, & MENU SCRIPT -->
   <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Fade-in animation on scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const fadeInOnScroll = () => {
-      fadeElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', fadeInOnScroll);
-    fadeInOnScroll();
-
-    // Hamburger menu toggle
     function toggleMenu() {
-      const navLinks = document.getElementById("navLinks");
-      navLinks.classList.toggle("show");
-      const hamburger = document.getElementById("hamburger");
-      hamburger.classList.toggle("active");
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
     }
   </script>
-
 </body>
 </html>
