@@ -1,65 +1,71 @@
-<!-- Rebuild Trigger: minor edit for GitHub Pages deployment -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeremie Salonga | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Navigation Bar -->
+
+  <!-- ===== NAVIGATION BAR ===== -->
   <nav class="navbar">
     <h2 class="logo">Jeremie<span>Salonga</span></h2>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" onclick="toggleMenu()">About</a></li>
       <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+      <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
       <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
     </ul>
-    <div class="menu-btn" onclick="toggleMenu()">
+    <div class="menu-icon" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- ===== HERO SECTION ===== -->
   <section class="hero">
-    <div class="content">
+    <div class="hero-content">
       <h1>Hello, I'm <span>Jeremie 👋</span></h1>
-      <p>Welcome to my personal portfolio website!</p>
-      <a href="#projects" class="btn">See My Work</a>
+      <p>Welcome to my personal website! I'm passionate about design, technology, and storytelling.</p>
+      <a href="#projects" class="btn">View My Work</a>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- ===== ABOUT SECTION ===== -->
   <section id="about" class="about">
     <h2>About Me</h2>
-    <p>I'm Jeremie Salonga, an aspiring IT professional and creative mind passionate about technology and design.</p>
+    <p>I'm Jeremie, an aspiring creative developer and visual storyteller who loves crafting meaningful digital experiences. I enjoy combining art and technology to create something that connects with people.</p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- ===== PROJECTS SECTION ===== -->
   <section id="projects" class="projects">
     <h2>Projects</h2>
-    <p>Coming soon... 🚀</p>
+    <div class="project-container">
+      <div class="project-card">
+        <h3>Internmizing</h3>
+        <p>A web-based internship tracking system for PUP San Juan Campus that helps streamline OJT processes.</p>
+      </div>
+      <div class="project-card">
+        <h3>SineSintangLIKHA</h3>
+        <p>A short film festival branding project celebrating creativity and storytelling among students.</p>
+      </div>
+      <div class="project-card">
+        <h3>Church Anniversary Video</h3>
+        <p>A multimedia project that highlights faith, community, and the power of the Gospel through visuals.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Let's connect! Reach me via <strong>theycallmejem@gmail.com</strong></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Jeremie Salonga | Built with ❤️</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("active");
-    }
-  </script>
-</body>
-</html>
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skill-container">
+      <div class="skill">
+        <i class="fab fa-html5"></i>
+        <h3>HTML</h3>
+        <div class="progress-bar">
+          <div class="progress html"></div>
+        </div>
+      </div>
