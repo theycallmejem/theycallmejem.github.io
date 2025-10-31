@@ -3,157 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Website</title>
+  <title>Jeremie Salonga | Portfolio</title>
 
-  <!-- Font Awesome for social media icons -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
   <style>
-    /* ====== GENERAL STYLE ====== */
+    /* ====== GENERAL ====== */
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
       color: #333;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
       transition: background 0.5s ease;
     }
 
-    /* ====== SIDEBAR ====== */
-    .sidebar {
-      width: 280px;
-      background-color: #f8f9fa;
-      padding: 20px;
-      position: fixed;
-      left: 0;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 40px 50px;
     }
 
-    .sidebar-header h1 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
+    h1, h2, h3 {
+      text-align: center;
       color: #007bff;
+      margin-bottom: 15px;
     }
 
-    .sidebar-header p {
-      font-size: 0.95em;
-      margin-bottom: 30px;
-      color: #666;
+    p {
+      line-height: 1.6;
     }
 
-    .nav-list {
-      list-style: none;
-      padding: 0;
+    /* ====== NAVIGATION BAR ====== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background: #f8f9fa;
+      padding: 15px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .nav-link {
-      display: block;
+    nav a {
       text-decoration: none;
       color: #333;
-      padding: 12px 15px;
-      margin-bottom: 8px;
+      font-weight: 600;
+      padding: 8px 15px;
       border-radius: 8px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      font-weight: 500;
+      transition: 0.3s;
     }
 
-    .nav-link:hover,
-    .nav-link.active {
+    nav a:hover,
+    nav a.active {
       background-color: #007bff;
       color: #fff;
     }
 
-    /* ====== MAIN CONTENT ====== */
-    .main-content {
-      margin-left: 280px;
-      padding: 30px;
-      width: calc(100% - 280px);
-      min-height: 100vh;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section {
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* ====== PROFILE SECTION ====== */
     .profile-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .profile-pic-container {
-      position: relative;
-      display: inline-block;
+      text-align: center;
+      margin-top: 30px;
     }
 
     #profilePic {
       border-radius: 50%;
-      object-fit: cover;
-      height: 200px;
       width: 200px;
+      height: 200px;
+      object-fit: cover;
       box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-      transition: transform 0.3s ease;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     #profilePic:hover {
       transform: scale(1.05);
-      opacity: 0.8;
-    }
-
-    #uploadInput {
-      display: none;
+      opacity: 0.85;
     }
 
     .upload-hint {
       font-size: 13px;
       color: #666;
       margin-top: 8px;
-      text-align: center;
+    }
+
+    #uploadInput {
+      display: none;
     }
 
     .profile-text {
+      margin-top: 20px;
       text-align: center;
-      max-width: 700px;
     }
 
     /* ====== BADGES ====== */
     .badges-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 40px;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 40px;
     }
 
     .badges-group {
@@ -164,7 +122,6 @@
     .badges-group h3 {
       margin-bottom: 15px;
       color: #007bff;
-      font-size: 1.2em;
       text-align: center;
     }
 
@@ -199,33 +156,7 @@
       box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     }
 
-    .badge i {
-      font-size: 1.2em;
-    }
-
-    .badge::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #333;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8em;
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease;
-    }
-
-    .badge:hover::after {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* ====== PROJECTS, SOCIAL, CONTACT ====== */
+    /* ====== PROJECTS & SOCIAL ====== */
     article {
       background: #f8f9fa;
       padding: 20px;
@@ -240,83 +171,68 @@
     }
 
     article a {
-      display: inline-block;
-      margin-top: 10px;
       color: #007bff;
+      text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    article a:hover {
-      color: #0056b3;
     }
 
     .social-links {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 15px;
-      padding: 0;
-      margin-top: 15px;
-    }
-
-    .social-links li {
-      list-style: none;
+      margin-top: 20px;
     }
 
     .social-links a {
+      color: #007bff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 1.5px solid #007bff;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      color: #007bff;
-      background: #f1f3f5;
-      padding: 10px 15px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
     .social-links a:hover {
       background: #007bff;
       color: #fff;
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
     }
 
-    .social-links i {
-      font-size: 22px;
-    }
-
+    /* ====== CONTACT FORM ====== */
     form {
       display: flex;
       flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    input,
-    textarea {
+    input, textarea {
       padding: 12px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
       border-radius: 8px;
-      transition: border-color 0.3s;
+      border: 1px solid #ccc;
       font-family: inherit;
+      transition: 0.3s;
     }
 
-    input:focus,
-    textarea:focus {
+    input:focus, textarea:focus {
       border-color: #007bff;
       outline: none;
     }
 
     button {
-      margin-top: 15px;
-      padding: 12px;
       background: linear-gradient(45deg, #007bff, #00c6ff);
-      color: white;
+      color: #fff;
+      padding: 12px;
       border: none;
       border-radius: 8px;
-      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
     button:hover {
@@ -324,167 +240,138 @@
       transform: translateY(-2px);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      padding: 20px 0;
-      border-top: 1px solid #e0e0e0;
-      color: #666;
+    /* ====== SECTIONS ====== */
+    section {
+      display: none;
+      animation: fadeIn 0.6s ease forwards;
     }
 
-    /* ====== RESPONSIVE ====== */
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0;
+      color: #777;
+    }
+
     @media (max-width: 768px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-      }
-      .main-content {
-        margin-left: 0;
-        width: 100%;
-      }
-      .badges-section {
-        flex-direction: column;
+      main {
+        padding: 25px;
       }
     }
   </style>
 </head>
-
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <header class="sidebar-header">
-      <div class="profile-picture-container">
-        <img id="profile-pic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" class="profile-pic" />
+  <nav>
+    <a href="#" class="active" data-section="profile">Profile</a>
+    <a href="#" data-section="projects">Projects</a>
+    <a href="#" data-section="social">Social</a>
+    <a href="#" data-section="contact">Contact</a>
+  </nav>
+
+  <main>
+    <!-- Profile Section -->
+    <section id="profile" class="active">
+      <h2>My Profile</h2>
+      <div class="profile-info">
+        <label for="uploadInput">
+          <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
+        </label>
+        <input type="file" id="uploadInput" accept="image/*" />
+        <div class="upload-hint">Click to change photo</div>
+
+        <div class="profile-text">
+          <p>Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at PUP San Juan Campus, who enjoys combining creativity with technology.</p>
+          <p><strong>Location:</strong> Brgy. Silangan, San Mateo, Rizal</p>
+          <p><strong>Interests:</strong> Multimedia, graphic design, creative arts, and innovative technology.</p>
+        </div>
       </div>
-      <h1>Jeremie Salonga</h1>
-      <p>INFP • Dreamer • Visionary • IT Student</p>
-    </header>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="#" class="nav-link active" data-section="profile">Profile</a></li>
-        <li><a href="#" class="nav-link" data-section="projects">Projects</a></li>
-        <li><a href="#" class="nav-link" data-section="social">Social Media</a></li>
-        <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
-      </ul>
-    </nav>
-  </aside>
 
-  <!-- Main content -->
-  <div class="main-content">
-    <main>
-      <!-- Profile Section -->
-      <section id="profile" class="section active fade-in">
-        <h2>My Profile</h2>
-        <div class="profile-info">
-          <div class="profile-pic-container">
-            <label for="uploadInput">
-              <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
-            </label>
-            <input type="file" id="uploadInput" accept="image/*" />
-            <div class="upload-hint">Click to change photo</div>
-          </div>
-          <div class="profile-text">
-            <p class="intro">
-              Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at PUP San Juan Campus, who enjoys combining creativity with technology...
-            </p>
-            <p><strong>Location:</strong> Brgy. Silangan, San Mateo, Rizal</p>
-            <p><strong>Interests:</strong> Multimedia, graphic design, creative arts, and innovative technology.</p>
-          </div>
+      <div class="badges-section">
+        <div class="badges-group">
+          <h3>My Skills</h3>
+          <ul class="badges-list">
+            <li class="badge"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
+            <li class="badge"><i class="fas fa-laptop"></i> Computer Literate</li>
+          </ul>
         </div>
-
-        <!-- Badges Section -->
-        <div class="badges-section">
-          <div class="badges-group">
-            <h3>My Skills</h3>
-            <ul class="badges-list">
-              <li class="badge" data-tooltip="Crafting visuals that pop!"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
-              <li class="badge" data-tooltip="Tech-savvy and always learning!"><i class="fas fa-laptop"></i> Computer Literate</li>
-              <li class="badge" data-tooltip="Turning challenges into solutions!"><i class="fas fa-brain"></i> Problem-Solving</li>
-              <li class="badge" data-tooltip="Guiding teams to success!"><i class="fas fa-users"></i> Leadership</li>
-            </ul>
-          </div>
-          <div class="badges-group">
-            <h3>My Personality</h3>
-            <ul class="badges-list">
-              <li class="badge" data-tooltip="Dreaming big!"><i class="fas fa-star"></i> Idealistic</li>
-              <li class="badge" data-tooltip="Spreading kindness!"><i class="fas fa-heart"></i> Kind-Hearted</li>
-              <li class="badge" data-tooltip="Seeing the bright side!"><i class="fas fa-sun"></i> Optimistic</li>
-              <li class="badge" data-tooltip="Thinking deeply!"><i class="fas fa-lightbulb"></i> Thoughtful</li>
-            </ul>
-          </div>
+        <div class="badges-group">
+          <h3>My Personality</h3>
+          <ul class="badges-list">
+            <li class="badge"><i class="fas fa-star"></i> Idealistic</li>
+            <li class="badge"><i class="fas fa-heart"></i> Kind-Hearted</li>
+            <li class="badge"><i class="fas fa-sun"></i> Optimistic</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="section">
-        <h2>My Projects</h2>
-        <article>
-          <h3>Project 1: [Project Name]</h3>
-          <p>Description of the project. Add details, technologies used, and more.</p>
-          <a href="#">View Project</a>
-        </article>
-        <article>
-          <h3>Project 2: [Project Name]</h3>
-          <p>Description of the project. Add details, technologies used, and more.</p>
-          <a href="#">View Project</a>
-        </article>
-      </section>
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+      <article>
+        <h3>Project 1: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
+      <article>
+        <h3>Project 2: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
+    </section>
 
-      <!-- Social Media Section -->
-      <section id="social" class="section">
-        <h2>My Social Media Accounts</h2>
-        <ul class="social-links">
-          <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-          <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-          <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-X"></i> X </a></li>
-          <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        </ul>
-      </section>
+    <!-- Social Media Section -->
+    <section id="social">
+      <h2>My Social Media</h2>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-x-twitter"></i> X</a>
+        <a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <form>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
-    </main>
-  </div>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 My Website. All rights reserved.</p>
+    <p>© 2025 Jeremie Salonga. All rights reserved.</p>
   </footer>
 
   <script>
-    // Sidebar navigation
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll(".section");
+    // Navigation switching
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
 
-    function showSection(sectionId) {
-      sections.forEach((sec) => {
-        sec.classList.remove("active", "fade-in");
-      });
-      const activeSection = document.getElementById(sectionId);
-      activeSection.classList.add("active", "fade-in");
-
-      navLinks.forEach((link) => link.classList.remove("active"));
-      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
-    }
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
         e.preventDefault();
-        const sectionId = this.getAttribute("data-section");
-        showSection(sectionId);
+        const sectionId = link.getAttribute("data-section");
+
+        sections.forEach(sec => sec.classList.remove("active"));
+        document.getElementById(sectionId).classList.add("active");
+
+        navLinks.forEach(nav => nav.classList.remove("active"));
+        link.classList.add("active");
       });
     });
 
@@ -506,9 +393,7 @@
 
     window.addEventListener("load", () => {
       const savedImage = localStorage.getItem("profileImage");
-      if (savedImage) {
-        profilePic.src = savedImage;
-      }
+      if (savedImage) profilePic.src = savedImage;
     });
   </script>
 </body>
