@@ -1,0 +1,149 @@
+/* ====== GLOBAL STYLES ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #0d1117;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ====== NAVIGATION BAR ====== */
+.navbar {
+  background-color: #161b22;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #30363d;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.logo span {
+  color: #58a6ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #58a6ff;
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #0d1117, #161b22);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #58a6ff;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: #c9d1d9;
+}
+
+.hero button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #58a6ff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #1f6feb;
+  transform: translateY(-2px);
+}
+
+/* ====== ABOUT SECTION ====== */
+.about {
+  padding: 80px 10%;
+  background-color: #0d1117;
+  text-align: center;
+}
+
+.about h2 {
+  color: #58a6ff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ====== SKILLS SECTION ====== */
+.skills {
+  padding: 80px 10%;
+  background-color: #161b22;
+  text-align: center;
+}
+
+.skills h2 {
+  color: #58a6ff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.skill {
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill span {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.progress {
+  background-color: #30363d;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.progress div {
+  height: 100%;
+  background-color: #58a6ff;
+}
+
+/* ====== SOCIAL L*
