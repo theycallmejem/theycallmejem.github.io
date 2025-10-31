@@ -2,192 +2,421 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremie Salonga | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
+
+  <!-- Font Awesome for social media icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Arial',sans-serif; background:#f4f4f4; color:#333; display:flex; min-height:100vh; }
-
-    /* Sidebar */
-    .sidebar {
-      width:250px; background:#fff; padding:20px; position:fixed; top:0; left:0; height:100vh; box-shadow:2px 0 10px rgba(0,0,0,0.1);
+    /* ====== GENERAL STYLE ====== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      transition: background 0.5s ease;
     }
-    .sidebar h1 { font-size:1.8em; color:#007bff; margin-bottom:5px; text-align:center; }
-    .sidebar p { font-size:0.9em; color:#666; text-align:center; margin-bottom:30px; }
-    .nav-list { list-style:none; }
-    .nav-link {
-      display:block; text-decoration:none; color:#333; padding:10px 15px; margin-bottom:8px; border-radius:8px; font-weight:500;
-      transition:0.3s;
+
+    /* ====== HEADER ====== */
+    header {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .nav-link:hover, .nav-link.active { background:#007bff; color:#fff; }
 
-    /* Main content */
-    .main-content { margin-left:250px; padding:30px; width:calc(100% - 250px); }
-    .section { display:none; opacity:0; transform:translateY(20px); transition:all 0.5s ease; }
-    .section.active { display:block; opacity:1; transform:translateY(0); }
-
-    /* Profile Card */
-    .profile-card { background:#fff; border-radius:15px; padding:30px; box-shadow:0 8px 20px rgba(0,0,0,0.1); max-width:800px; margin:0 auto; text-align:center; }
-    .profile-pic-container { position:relative; display:inline-block; margin-bottom:20px; }
-    .profile-pic { width:150px; height:150px; border-radius:50%; object-fit:cover; border:4px solid #007bff; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; cursor:pointer; }
-    .profile-pic:hover { transform:scale(1.05); }
-    .upload-overlay {
-      position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,123,255,0.7); border-radius:50%;
-      display:flex; align-items:center; justify-content:center; color:#fff; opacity:0; transition:0.3s; font-size:14px;
+    h1 {
+      margin-bottom: 10px;
+      color: #007bff;
+      letter-spacing: 1px;
     }
-    .profile-pic-container:hover .upload-overlay { opacity:1; }
 
-    /* Profile text */
-    .profile-text { text-align:left; margin-top:20px; line-height:1.6; }
-    .profile-text p { margin-bottom:10px; }
+    /* ====== NAVIGATION ====== */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+    }
 
-    /* Certifications and Experiences */
-    .cert-list, .exp-list, .projects-list { list-style:none; padding:0; }
-    .cert-item, .exp-item, .project-item { background:#fff; padding:20px; margin-bottom:15px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
-    .cert-item h4, .exp-item h4, .project-item h4 { color:#007bff; margin-bottom:8px; }
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
 
-    /* Social Media */
-    .social-links { list-style:none; display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:20px; }
-    .social-links li a { text-decoration:none; color:#333; font-size:1.5em; display:flex; align-items:center; gap:5px; padding:8px; border-radius:8px; transition:0.3s; }
-    .social-links li a:hover { background:#007bff; color:#fff; }
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
 
-    /* Responsive */
-    @media(max-width:768px){
-      .sidebar { width:100%; position:static; height:auto; }
-      .main-content { margin-left:0; width:100%; }
+    nav a:hover,
+    nav a.active {
+      background-color: #007bff;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== PROFILE ====== */
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    #profilePic {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 200px;
+      width: 200px;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    #profilePic:hover {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+
+    #uploadInput {
+      display: none;
+    }
+
+    .upload-hint {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .profile-text p {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    /* ====== PROJECTS ====== */
+    article {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    article a:hover {
+      color: #0056b3;
+    }
+
+    /* ====== SOCIAL LINKS ====== */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .social-links li {
+      list-style: none;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #007bff;
+      background: #f1f3f5;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #007bff;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    .social-links i {
+      font-size: 22px;
+    }
+
+    /* ====== CONTACT FORM ====== */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #0056b3, #0099cc);
+      transform: translateY(-2px);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      color: #666;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 16px 16px;
+      font-size: 14px;
+    }
+
+    /* ====== ANIMATION CLASSES ====== */
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
-<body>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h1>Jeremie Salonga</h1>
-    <p>INFP • Dreamer • Visionary • IT Student</p>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
     <nav>
-      <ul class="nav-list">
-        <li><a href="#" class="nav-link active" data-section="profile">Profile</a></li>
-        <li><a href="#" class="nav-link" data-section="certification">Certification</a></li>
-        <li><a href="#" class="nav-link" data-section="experiences">Experiences</a></li>
-        <li><a href="#" class="nav-link" data-section="projects">Projects</a></li>
-        <li><a href="#" class="nav-link" data-section="social">Social Media</a></li>
+      <ul>
+        <li><a href="#profile" class="nav-link active" data-section="profile">Profile</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#social" class="nav-link" data-section="social">Social Media</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
     </nav>
-  </aside>
+  </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Profile -->
-    <section id="profile" class="section active">
-      <article class="profile-card">
+  <main>
+    <section id="profile" class="active fade-in">
+      <h2>My Profile</h2>
+      <div class="profile-info">
         <div class="profile-pic-container">
-          <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" class="profile-pic">
-          <div class="upload-overlay">Click to upload</div>
-          <input type="file" id="uploadInput" accept="image/*" style="display:none;">
+          <label for="uploadInput">
+            <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
+          </label>
+          <input type="file" id="uploadInput" accept="image/*" />
         </div>
         <div class="profile-text">
-          <p><strong>Jeremie S. Salonga</strong>, 4th-year BSIT student at PUP San Juan Campus.</p>
-          <p>Passionate about multimedia, IT, and creative design. Skilled in problem-solving, leadership, and collaboration.</p>
-          <p>Location: Brgy. Silangan, San Mateo, Rizal</p>
+          <p class="intro">
+            Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at Polytechnic University of the Philippines - San Juan Campus, who enjoys combining creativity with technology. My interests span across IT, multimedia, and design, where I get to use both my technical skills and artistic side. Over the years, I’ve developed strengths in problem-solving, adaptability, and staying consistent with the quality of my work. I value collaboration and empathy, which help me connect with people and work effectively in a team. At the same time, I’m comfortable leading when needed and communicating ideas clearly in both English and Filipino. Looking forward, I aim to grow in the fields of IT, digital services, and multimedia—bringing innovation, creativity, and reliability into every project I take on.
+          </p>
+          <div class="profile-details">
+            <p><strong>Location:</strong> Brgy. Silangan, San Mateo, Rizal</p>
+            <p><strong>Interests:</strong> Passionate about multimedia, graphic design, and creative arts, with a strong interest in exploring innovative technology. I enjoy combining creativity and technology to produce visually engaging and meaningful projects.</p>
+          </div>
+        </div>
+
+        <!-- Skills and Personality Badges -->
+        <div class="badges-section">
+          <div class="badges-group">
+            <h3>My Skills</h3>
+            <ul class="badges-list">
+              <li class="badge" data-tooltip="Crafting visuals that pop!"><i class="fas fa-paint-brush" aria-hidden="true"></i> Graphic Designer</li>
+              <li class="badge" data-tooltip="Tech-savvy and always learning!"><i class="fas fa-laptop" aria-hidden="true"></i> Computer Literate</li>
+              <li class="badge" data-tooltip="Turning challenges into solutions!"><i class="fas fa-brain" aria-hidden="true"></i> Problem-Solving</li>
+              <li class="badge" data-tooltip="Guiding teams to success!"><i class="fas fa-users" aria-hidden="true"></i> Leadership</li>
+            </ul>
+          </div>
+          <div class="badges-group">
+            <h3>My Personality</h3>
+            <ul class="badges-list">
+              <li class="badge" data-tooltip="Dreaming big and making it happen!"><i class="fas fa-star" aria-hidden="true"></i> Idealistic</li>
+              <li class="badge" data-tooltip="Spreading kindness everywhere!"><i class="fas fa-heart" aria-hidden="true"></i> Kind-Hearted</li>
+              <li class="badge" data-tooltip="Seeing the bright side!"><i class="fas fa-sun" aria-hidden="true"></i> Optimistic</li>
+              <li class="badge" data-tooltip="Thinking deeply and caring!"><i class="fas fa-lightbulb" aria-hidden="true"></i> Thoughtful</li>
+            </ul>
+          </div>
         </div>
       </article>
     </section>
 
-    <!-- Certification -->
-    <section id="certification" class="section">
-      <h2>Certifications</h2>
-      <ul class="cert-list">
-        <li class="cert-item">
-          <h4>Certification 1</h4>
-          <p>Issuer: Organization</p>
-          <p>Date: Month Year</p>
-          <p>Description...</p>
-        </li>
-        <li class="cert-item">
-          <h4>Certification 2</h4>
-          <p>Issuer: Organization</p>
-          <p>Date: Month Year</p>
-          <p>Description...</p>
-        </li>
-      </ul>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <article>
+        <h3>Project 1: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
+      <article>
+        <h3>Project 2: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
     </section>
 
-    <!-- Experiences -->
-    <section id="experiences" class="section">
-      <h2>Experiences</h2>
-      <ul class="exp-list">
-        <li class="exp-item">
-          <h4>Experience 1</h4>
-          <p>Role/Position</p>
-          <p>Organization</p>
-          <p>Date</p>
-        </li>
-        <li class="exp-item">
-          <h4>Experience 2</h4>
-          <p>Role/Position</p>
-          <p>Organization</p>
-          <p>Date</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <ul class="projects-list">
-        <li class="project-item">
-          <h4>Project 1</h4>
-          <p>Description...</p>
-        </li>
-        <li class="project-item">
-          <h4>Project 2</h4>
-          <p>Description...</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Social Media -->
-    <section id="social" class="section">
-      <h2>Social Media</h2>
+    <section id="social">
+      <h2>My Social Media Accounts</h2>
+      <p>Connect with me on social media:</p>
       <ul class="social-links">
-        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-        <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
-        <li><a href="#"><i class="fab fa-twitter"></i> X</a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
-        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-X"></i> X </a></li>
+        <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
       </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </main>
 
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+
   <script>
-    // Section navigation
+    // ====== SECTION NAVIGATION ======
     const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll(".section");
+    const sections = document.querySelectorAll("section");
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", e => {
+    function showSection(sectionId) {
+      sections.forEach((section) => {
+        section.classList.remove("active", "fade-in");
+      });
+      const activeSection = document.getElementById(sectionId);
+      activeSection.classList.add("active", "fade-in");
+
+      navLinks.forEach((link) => link.classList.remove("active"));
+      document
+        .querySelector(`[data-section="${sectionId}"]`)
+        .classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = link.dataset.section;
-
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.getElementById(target).classList.add("active");
-
-        navLinks.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
+        const sectionId = this.getAttribute("data-section");
+        showSection(sectionId);
       });
     });
 
-    // Profile picture upload
-    const profilePic = document.getElementById("profilePic");
+    // ====== PROFILE PICTURE UPLOAD ======
     const uploadInput = document.getElementById("uploadInput");
+    const profilePic = document.getElementById("profilePic");
 
-    profilePic.addEventListener("click", () => uploadInput.click());
-    uploadInput.addEventListener("change", e => {
-      const file = e.target.files[0];
-      if(file){
-        profilePic.src = URL.createObjectURL(file);
+    uploadInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePic.src = e.target.result;
+          localStorage.setItem("profileImage", e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Load saved profile image on page load
+    window.addEventListener("load", () => {
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        profilePic.src = savedImage;
       }
     });
   </script>
