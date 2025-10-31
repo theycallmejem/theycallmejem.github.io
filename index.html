@@ -1,71 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeremie Salonga | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Jeremie Salonga</h1>
+    <p>INFP • Dreamer • Visionary • IT Student</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- ===== NAVIGATION BAR ===== -->
-  <nav class="navbar">
-    <h2 class="logo">Jeremie<span>Salonga</span></h2>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" onclick="toggleMenu()">About</a></li>
-      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-      <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-    </ul>
-    <div class="menu-icon" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-  </nav>
-
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm <span>Jeremie 👋</span></h1>
-      <p>Welcome to my personal website! I'm passionate about design, technology, and storytelling.</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT SECTION ===== -->
-  <section id="about" class="about">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm Jeremie, an aspiring creative developer and visual storyteller who loves crafting meaningful digital experiences. I enjoy combining art and technology to create something that connects with people.</p>
+    <p>
+      Hello! I'm Jeremie — a creative and visionary INFP who loves blending technology and storytelling.
+      I’m currently pursuing my IT degree and passionate about web development, multimedia, and design.
+    </p>
   </section>
 
-  <!-- ===== PROJECTS SECTION ===== -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-container">
-      <div class="project-card">
-        <h3>Internmizing</h3>
-        <p>A web-based internship tracking system for PUP San Juan Campus that helps streamline OJT processes.</p>
-      </div>
-      <div class="project-card">
-        <h3>SineSintangLIKHA</h3>
-        <p>A short film festival branding project celebrating creativity and storytelling among students.</p>
-      </div>
-      <div class="project-card">
-        <h3>Church Anniversary Video</h3>
-        <p>A multimedia project that highlights faith, community, and the power of the Gospel through visuals.</p>
-      </div>
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skill">
+      <span>HTML</span>
+      <div class="bar"><div class="fill html"></div></div>
+    </div>
+    <div class="skill">
+      <span>CSS</span>
+      <div class="bar"><div class="fill css"></div></div>
+    </div>
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="bar"><div class="fill js"></div></div>
+    </div>
+    <div class="skill">
+      <span>Photoshop</span>
+      <div class="bar"><div class="fill ps"></div></div>
     </div>
   </section>
 
-  <!-- ===== SKILLS SECTION ===== -->
-  <section id="skills" class="skills">
-    <h2>Skills</h2>
-    <div class="skill-container">
-      <div class="skill">
-        <i class="fab fa-html5"></i>
-        <h3>HTML</h3>
-        <div class="progress-bar">
-          <div class="progress html"></div>
-        </div>
-      </div>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Coming soon! 🚀</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me at: <a href="mailto:jeremiesalonga@gmail.com">jeremiesalonga@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Jeremie Salonga | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
