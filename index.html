@@ -1,281 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Website</title>
-    <!-- Font Awesome for social media icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
 
-    <link rel="stylesheet" href="style.css">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
+  <!-- Font Awesome for social media icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <style>
+    /* ====== GENERAL STYLE ====== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      transition: background 0.5s ease;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #007bff;
+      letter-spacing: 1px;
+    }
+
+    /* ====== NAVIGATION ====== */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #007bff;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== PROFILE ====== */
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 200px;
+      width: 200px;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-text p {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    /* ====== PROJECTS ====== */
+    article {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    article a:hover {
+      color: #0056b3;
+    }
+
+    /* ====== SOCIAL LINKS ====== */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .social-links li {
+      list-style: none;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #007bff;
+      background: #f1f3f5;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #007bff;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    .social-links i {
+      font-size: 22px;
+    }
+
+    /* ====== CONTACT FORM ====== */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #0056b3, #0099cc);
+      transform: translateY(-2px);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      color: #666;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 16px 16px;
+      font-size: 14px;
+    }
+
+    /* ====== ANIMATION CLASSES ====== */
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-      header {
-        background-color: #fff;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      nav ul {
-        list-style: none;
-        padding: 0;
-      }
-      nav ul li {
-        display: inline;
-        margin: 0 15px;
-      }
-      nav a {
-        text-decoration: none;
-        color: #007bff;
-        padding: 10px 15px;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-      }
-      nav a:hover,
-      nav a.active {
-        background-color: #e9ecef;
-        color: #0056b3;
-      }
-      main {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      section {
-        display: none;
-        margin-bottom: 40px;
-      }
-      section.active {
-        display: block;
-      }
-      h1,
-      h2,
-      h3 {
-        color: #333;
-      }
-      img {
-        border-radius: 50%;
-        margin: 10px 0;
-        object-fit: cover;
-        height: 200px;
-        width: 200px;
-      }
-      .profile-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-      .profile-text {
-        flex: 1;
-      }
-      .social-links {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .social-links li {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-      }
-      .social-links a {
-        text-decoration: none;
-        color: #007bff;
-        transition: color 0.3s;
-        display: flex;
-        align-items: center;
-      }
-      .social-links a:hover {
-        color: #0056b3;
-      }
-      .social-links i {
-        margin-right: 8px;
-        font-size: 22px;
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-      label {
-        margin-top: 10px;
-      }
-      input,
-      textarea {
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        margin-top: 15px;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-        color: #666;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-      <h1>Welcome to My Website</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#profile" class="nav-link active" data-section="profile"
-              >Profile</a
-            >
-          </li>
-          <li>
-            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-          </li>
-          <li>
-            <a href="#social" class="nav-link" data-section="social"
-              >Social Media</a
-            >
-          </li>
-          <li>
-            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#profile" class="nav-link active" data-section="profile">Profile</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#social" class="nav-link" data-section="social">Social Media</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <section id="profile" class="active">
-        <h2>My Profile</h2>
-        <div class="profile-info">
-          <!-- Updated profile picture with attached image -->
-          <img src="profile-photo.jpg" alt="Profile Photo" />
-          <div class="profile-text">
-            <p>
-              Hi, I'm [Your Name]. [Brief bio about yourself, skills, interests,
-              etc.]
-            </p>
-            <ul>
-              <li><strong>Location:</strong> [Your Location]</li>
-              <li><strong>Occupation:</strong> [Your Job/Role]</li>
-              <li><strong>Interests:</strong> [List interests]</li>
-            </ul>
-          </div>
+  <main>
+    <section id="profile" class="active fade-in">
+      <h2>My Profile</h2>
+      <div class="profile-info">
+        <img src="profile-photo.jpg" alt="Profile Photo" />
+        <div class="profile-text">
+          <p>
+            Hi, I'm <strong>[Your Name]</strong>. A creative and passionate individual who loves technology, design, and storytelling.
+          </p>
+          <ul>
+            <li><strong>Location:</strong> [Your Location]</li>
+            <li><strong>Occupation:</strong> [Your Job/Role]</li>
+            <li><strong>Interests:</strong> [List interests]</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="projects">
-        <h2>My Projects</h2>
-        <article>
-          <h3>Project 1: [Project Name]</h3>
-          <p>
-            Description of the project. [Add details, technologies used, links,
-            etc.]
-          </p>
-          <a href="[Project Link]">View Project</a>
-        </article>
-        <article>
-          <h3>Project 2: [Project Name]</h3>
-          <p>
-            Description of the project. [Add details, technologies used, links,
-            etc.]
-          </p>
-          <a href="[Project Link]">View Project</a>
-        </article>
-        <!-- Add more <article> elements for additional projects -->
-      </section>
+    <section id="projects">
+      <h2>My Projects</h2>
+      <article>
+        <h3>Project 1: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
+      <article>
+        <h3>Project 2: [Project Name]</h3>
+        <p>Description of the project. Add details, technologies used, and more.</p>
+        <a href="#">View Project</a>
+      </article>
+    </section>
 
-     <section id="social" class="section">
-  <h2>My Social Media Accounts</h2>
-  <p>Connect with me on social media:</p>
-  <ul class="social-links">
-    <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
-    <li><a href="https://www.tiktok.com/@jemlangtopre?_r=1&_t=ZS-910qwAQPJdn" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a></li>
-    <li><a href="https://x.com/eyyy_jem?t=twrThZxXEhQyrCwv-nJoFA&s=09" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
-    <li><a href="https://www.instagram.com/jem.xcx?igsh=MTIwODFpNjR0c2h2dA==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
-    <li><a href="https://github.com/theycallmejem" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-  </ul>
-</section>
+    <section id="social">
+      <h2>My Social Media Accounts</h2>
+      <p>Connect with me on social media:</p>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
+        <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      </ul>
+    </section>
 
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
-    </main>
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
 
-    <footer>
-      <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
+  <script>
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section");
 
-    <script>
-      const navLinks = document.querySelectorAll(".nav-link");
-      const sections = document.querySelectorAll("section");
-
-      function showSection(sectionId) {
-        sections.forEach((section) => section.classList.remove("active"));
-        document.getElementById(sectionId).classList.add("active");
-        navLinks.forEach((link) => link.classList.remove("active"));
-        document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
-      }
-
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const sectionId = this.getAttribute("data-section");
-          showSection(sectionId);
-        });
+    function showSection(sectionId) {
+      sections.forEach((section) => {
+        section.classList.remove("active", "fade-in");
       });
+      const activeSection = document.getElementById(sectionId);
+      activeSection.classList.add("active", "fade-in");
 
-      showSection("profile");
-    </script>
-  </body>
+      navLinks.forEach((link) => link.classList.remove("active"));
+      document
+        .querySelector(`[data-section="${sectionId}"]`)
+        .classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const sectionId = this.getAttribute("data-section");
+        showSection(sectionId);
+      });
+    });
+  </script>
+</body>
 </html>
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
