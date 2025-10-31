@@ -23,68 +23,78 @@
       transition: background 0.5s ease;
     }
 
-    /* ====== HEADER ====== */
-    header {
-      background: #fff;
+    /* ====== SIDEBAR ====== */
+    .sidebar {
+      width: 280px;
+      background-color: #f8f9fa;
       padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      position: sticky;
+      position: fixed;
+      left: 0;
       top: 0;
-      z-index: 10;
+      height: 100vh;
+      overflow-y: auto;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    h1 {
+    .sidebar-header h1 {
+      font-size: 1.8em;
       margin-bottom: 10px;
       color: #007bff;
-      letter-spacing: 1px;
     }
 
-    /* ====== NAVIGATION ====== */
-    nav ul {
+    .sidebar-header p {
+      font-size: 0.95em;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .nav-list {
       list-style: none;
       padding: 0;
-      margin: 10px 0 0 0;
     }
 
-    nav ul li {
-      display: inline-block;
-      margin: 0 10px;
-    }
-
-    nav a {
+    .nav-link {
+      display: block;
       text-decoration: none;
-      color: #007bff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
+      color: #333;
+      padding: 12px 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
       font-weight: 500;
     }
 
-    nav a:hover,
-    nav a.active {
+    .nav-link:hover,
+    .nav-link.active {
       background-color: #007bff;
-      color: white;
-      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+      color: #fff;
     }
 
     /* ====== MAIN CONTENT ====== */
+    .main-content {
+      margin-left: 280px;
+      padding: 30px;
+      width: calc(100% - 280px);
+      min-height: 100vh;
+    }
+
     main {
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 30px;
+      margin: auto;
       background: white;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      padding: 30px;
       position: relative;
       overflow: hidden;
     }
 
     section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
       display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     section.active {
@@ -93,12 +103,12 @@
       transform: translateY(0);
     }
 
-    /* ====== PROFILE ====== */
+    /* ====== PROFILE SECTION ====== */
     .profile-info {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
     .profile-pic-container {
@@ -132,12 +142,90 @@
       text-align: center;
     }
 
-    .profile-text p {
-      margin-bottom: 10px;
-      color: #555;
+    .profile-text {
+      text-align: center;
+      max-width: 700px;
     }
 
-    /* ====== PROJECTS ====== */
+    /* ====== BADGES ====== */
+    .badges-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .badges-group {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .badges-group h3 {
+      margin-bottom: 15px;
+      color: #007bff;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    .badges-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .badge {
+      background: #fff;
+      border: 2px solid #007bff;
+      border-radius: 25px;
+      padding: 8px 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #333;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .badge:hover {
+      background: #007bff;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+
+    .badge i {
+      font-size: 1.2em;
+    }
+
+    .badge::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8em;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .badge:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ====== PROJECTS, SOCIAL, CONTACT ====== */
     article {
       background: #f8f9fa;
       padding: 20px;
@@ -163,7 +251,6 @@
       color: #0056b3;
     }
 
-    /* ====== SOCIAL LINKS ====== */
     .social-links {
       display: flex;
       flex-wrap: wrap;
@@ -199,7 +286,6 @@
       font-size: 22px;
     }
 
-    /* ====== CONTACT FORM ====== */
     form {
       display: flex;
       flex-direction: column;
@@ -238,154 +324,160 @@
       transform: translateY(-2px);
     }
 
-    /* ====== FOOTER ====== */
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #fff;
+      margin-top: 50px;
+      padding: 20px 0;
+      border-top: 1px solid #e0e0e0;
       color: #666;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 0 0 16px 16px;
-      font-size: 14px;
     }
 
-    /* ====== ANIMATION CLASSES ====== */
-    .fade-in {
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+      .badges-section {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Welcome to My Website</h1>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <div class="profile-picture-container">
+        <img id="profile-pic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" class="profile-pic" />
+      </div>
+      <h1>Jeremie Salonga</h1>
+      <p>INFP • Dreamer • Visionary • IT Student</p>
+    </header>
     <nav>
-      <ul>
-        <li><a href="#profile" class="nav-link active" data-section="profile">Profile</a></li>
-        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-        <li><a href="#social" class="nav-link" data-section="social">Social Media</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      <ul class="nav-list">
+        <li><a href="#" class="nav-link active" data-section="profile">Profile</a></li>
+        <li><a href="#" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#" class="nav-link" data-section="social">Social Media</a></li>
+        <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+  </aside>
 
-  <main>
-    <section id="profile" class="active fade-in">
-      <h2>My Profile</h2>
-      <div class="profile-info">
-        <div class="profile-pic-container">
-          <label for="uploadInput">
-            <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
-          </label>
-          <input type="file" id="uploadInput" accept="image/*" />
-        </div>
-        <div class="profile-text">
-          <p class="intro">
-            Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at Polytechnic University of the Philippines - San Juan Campus, who enjoys combining creativity with technology. My interests span across IT, multimedia, and design, where I get to use both my technical skills and artistic side. Over the years, I’ve developed strengths in problem-solving, adaptability, and staying consistent with the quality of my work. I value collaboration and empathy, which help me connect with people and work effectively in a team. At the same time, I’m comfortable leading when needed and communicating ideas clearly in both English and Filipino. Looking forward, I aim to grow in the fields of IT, digital services, and multimedia—bringing innovation, creativity, and reliability into every project I take on.
-          </p>
-          <div class="profile-details">
+  <!-- Main content -->
+  <div class="main-content">
+    <main>
+      <!-- Profile Section -->
+      <section id="profile" class="section active fade-in">
+        <h2>My Profile</h2>
+        <div class="profile-info">
+          <div class="profile-pic-container">
+            <label for="uploadInput">
+              <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
+            </label>
+            <input type="file" id="uploadInput" accept="image/*" />
+            <div class="upload-hint">Click to change photo</div>
+          </div>
+          <div class="profile-text">
+            <p class="intro">
+              Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at PUP San Juan Campus, who enjoys combining creativity with technology...
+            </p>
             <p><strong>Location:</strong> Brgy. Silangan, San Mateo, Rizal</p>
-            <p><strong>Interests:</strong> Passionate about multimedia, graphic design, and creative arts, with a strong interest in exploring innovative technology. I enjoy combining creativity and technology to produce visually engaging and meaningful projects.</p>
+            <p><strong>Interests:</strong> Multimedia, graphic design, creative arts, and innovative technology.</p>
           </div>
         </div>
 
-        <!-- Skills and Personality Badges -->
+        <!-- Badges Section -->
         <div class="badges-section">
           <div class="badges-group">
             <h3>My Skills</h3>
             <ul class="badges-list">
-              <li class="badge" data-tooltip="Crafting visuals that pop!"><i class="fas fa-paint-brush" aria-hidden="true"></i> Graphic Designer</li>
-              <li class="badge" data-tooltip="Tech-savvy and always learning!"><i class="fas fa-laptop" aria-hidden="true"></i> Computer Literate</li>
-              <li class="badge" data-tooltip="Turning challenges into solutions!"><i class="fas fa-brain" aria-hidden="true"></i> Problem-Solving</li>
-              <li class="badge" data-tooltip="Guiding teams to success!"><i class="fas fa-users" aria-hidden="true"></i> Leadership</li>
+              <li class="badge" data-tooltip="Crafting visuals that pop!"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
+              <li class="badge" data-tooltip="Tech-savvy and always learning!"><i class="fas fa-laptop"></i> Computer Literate</li>
+              <li class="badge" data-tooltip="Turning challenges into solutions!"><i class="fas fa-brain"></i> Problem-Solving</li>
+              <li class="badge" data-tooltip="Guiding teams to success!"><i class="fas fa-users"></i> Leadership</li>
             </ul>
           </div>
           <div class="badges-group">
             <h3>My Personality</h3>
             <ul class="badges-list">
-              <li class="badge" data-tooltip="Dreaming big and making it happen!"><i class="fas fa-star" aria-hidden="true"></i> Idealistic</li>
-              <li class="badge" data-tooltip="Spreading kindness everywhere!"><i class="fas fa-heart" aria-hidden="true"></i> Kind-Hearted</li>
-              <li class="badge" data-tooltip="Seeing the bright side!"><i class="fas fa-sun" aria-hidden="true"></i> Optimistic</li>
-              <li class="badge" data-tooltip="Thinking deeply and caring!"><i class="fas fa-lightbulb" aria-hidden="true"></i> Thoughtful</li>
+              <li class="badge" data-tooltip="Dreaming big!"><i class="fas fa-star"></i> Idealistic</li>
+              <li class="badge" data-tooltip="Spreading kindness!"><i class="fas fa-heart"></i> Kind-Hearted</li>
+              <li class="badge" data-tooltip="Seeing the bright side!"><i class="fas fa-sun"></i> Optimistic</li>
+              <li class="badge" data-tooltip="Thinking deeply!"><i class="fas fa-lightbulb"></i> Thoughtful</li>
             </ul>
           </div>
         </div>
-      </article>
-    </section>
+      </section>
 
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <h2>My Projects</h2>
+        <article>
+          <h3>Project 1: [Project Name]</h3>
+          <p>Description of the project. Add details, technologies used, and more.</p>
+          <a href="#">View Project</a>
+        </article>
+        <article>
+          <h3>Project 2: [Project Name]</h3>
+          <p>Description of the project. Add details, technologies used, and more.</p>
+          <a href="#">View Project</a>
+        </article>
+      </section>
 
-    <section id="projects">
-      <h2>My Projects</h2>
-      <article>
-        <h3>Project 1: [Project Name]</h3>
-        <p>Description of the project. Add details, technologies used, and more.</p>
-        <a href="#">View Project</a>
-      </article>
-      <article>
-        <h3>Project 2: [Project Name]</h3>
-        <p>Description of the project. Add details, technologies used, and more.</p>
-        <a href="#">View Project</a>
-      </article>
-    </section>
+      <!-- Social Media Section -->
+      <section id="social" class="section">
+        <h2>My Social Media Accounts</h2>
+        <ul class="social-links">
+          <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+          <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-X"></i> X </a></li>
+          <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        </ul>
+      </section>
 
-    <section id="social">
-      <h2>My Social Media Accounts</h2>
-      <p>Connect with me on social media:</p>
-      <ul class="social-links">
-        <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-        <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-X"></i> X </a></li>
-        <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-        <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 My Website. All rights reserved.</p>
   </footer>
 
   <script>
-    // ====== SECTION NAVIGATION ======
+    // Sidebar navigation
     const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(".section");
 
     function showSection(sectionId) {
-      sections.forEach((section) => {
-        section.classList.remove("active", "fade-in");
+      sections.forEach((sec) => {
+        sec.classList.remove("active", "fade-in");
       });
       const activeSection = document.getElementById(sectionId);
       activeSection.classList.add("active", "fade-in");
 
       navLinks.forEach((link) => link.classList.remove("active"));
-      document
-        .querySelector(`[data-section="${sectionId}"]`)
-        .classList.add("active");
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
     }
 
     navLinks.forEach((link) => {
@@ -396,7 +488,7 @@
       });
     });
 
-    // ====== PROFILE PICTURE UPLOAD ======
+    // Profile picture upload
     const uploadInput = document.getElementById("uploadInput");
     const profilePic = document.getElementById("profilePic");
 
@@ -412,7 +504,6 @@
       }
     });
 
-    // Load saved profile image on page load
     window.addEventListener("load", () => {
       const savedImage = localStorage.getItem("profileImage");
       if (savedImage) {
