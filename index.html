@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeremie Salonga | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -13,17 +13,20 @@
   <!-- NAVIGATION BAR -->
   <nav class="navbar">
     <h2 class="logo">Jeremie<span>Salonga</span></h2>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
     </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
   </nav>
 
   <!-- HEADER SECTION -->
   <header>
     <div class="container fade-in">
-      <img src="your-profile.jpg" alt="Jeremie Salonga" class="profile-pic">
+      <img src="your-profile.jpg" alt="Jeremie Salonga" class="profile-pic" />
       <h1>Jeremie Salonga</h1>
       <p class="tagline">Dreamer | Visionary | Creative Technologist</p>
       <div class="social-links">
@@ -76,7 +79,7 @@
     <p>© 2025 Jeremie Salonga. All rights reserved.</p>
   </footer>
 
-  <!-- SMOOTH SCROLL & ANIMATION SCRIPT -->
+  <!-- SMOOTH SCROLL, ANIMATION, & MENU SCRIPT -->
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -88,7 +91,7 @@
       });
     });
 
-    // Fade-in on scroll
+    // Fade-in animation on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
     const fadeInOnScroll = () => {
       fadeElements.forEach(el => {
@@ -100,6 +103,14 @@
     };
     window.addEventListener('scroll', fadeInOnScroll);
     fadeInOnScroll();
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("show");
+      const hamburger = document.getElementById("hamburger");
+      hamburger.classList.toggle("active");
+    }
   </script>
 
 </body>
