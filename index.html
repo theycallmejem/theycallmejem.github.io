@@ -95,3 +95,53 @@
         <li>
           <a href="https://www.tiktok.com/@jemlangtopre?_r=1&_t=ZS-910qwAQPJdn" target="_blank" aria-label="TikTok">
             <i class="fab fa-tiktok"></i> TikTok
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 My Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section");
+
+    function showSection(sectionId) {
+      sections.forEach((section) => section.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+      navLinks.forEach((link) => link.classList.remove("active"));
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const sectionId = this.getAttribute("data-section");
+        showSection(sectionId);
+      });
+    });
+
+    showSection("profile");
+  </script>
+</body>
+</html>
