@@ -106,16 +106,17 @@
       margin-right: 8px;
       font-size: 22px;
     }
+
+    /* Social media preview box */
     #social-preview {
       margin-top: 30px;
-      text-align: center;
-    }
-    iframe {
       width: 100%;
       height: 500px;
-      border: none;
-      border-radius: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: none;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -170,11 +171,14 @@
       <div class="profile-info">
         <img src="profile-photo.jpg" alt="Profile Photo" />
         <div class="profile-text">
-          <p>Hi, I'm Jeremie Salonga. I'm an IT student, creative, and visionary with passion in technology and multimedia design.</p>
+          <p>
+            Hi, I'm Jeremie Salonga. A visionary INFP and IT student who loves technology,
+            creativity, and meaningful storytelling.
+          </p>
           <ul>
             <li><strong>Location:</strong> San Mateo, Rizal</li>
-            <li><strong>Occupation:</strong> BSIT Student</li>
-            <li><strong>Interests:</strong> Web Development, Design, Music, and Visual Arts</li>
+            <li><strong>Occupation:</strong> IT Student</li>
+            <li><strong>Interests:</strong> Design, Coding, Filmmaking, Music</li>
           </ul>
         </div>
       </div>
@@ -183,15 +187,18 @@
     <section id="projects">
       <h2>My Projects</h2>
       <article>
-        <h3>Project 1: Internmizing</h3>
-        <p>A mobile-based internship tracking system for PUP San Juan Campus.</p>
-        <a href="#">View Project</a>
+        <h3>Project 1: INTERNMIZING</h3>
+        <p>A web system for managing internship programs at PUP San Juan Campus.</p>
+      </article>
+      <article>
+        <h3>Project 2: SineSintangLIKHA Film Festival</h3>
+        <p>A creative multimedia production celebrating San Juan’s youth and stories.</p>
       </article>
     </section>
 
     <section id="social">
       <h2>Social Media Accounts</h2>
-      <p>Connect with me on social media:</p>
+      <p>Click a platform to view my profile below:</p>
       <ul class="social-links">
         <li><a data-url="https://x.com/eyyy_jem?t=twrThZxXEhQyrCwv-nJoFA&s=09"><span style="font-weight: bold; font-size: 22px;">X</span></a></li>
         <li><a data-url="https://www.linkedin.com/in/jeremie-salonga-b9768b375/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
@@ -202,10 +209,7 @@
       </ul>
 
       <!-- Preview Frame -->
-      <div id="social-preview">
-        <p style="color:#555;">Click a social media icon to view profile preview below 👇</p>
-        <iframe id="preview-frame" src=""></iframe>
-      </div>
+      <iframe id="social-preview" src=""></iframe>
     </section>
 
     <section id="contact">
@@ -227,9 +231,10 @@
   </footer>
 
   <script>
-    // Navigation system
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll("section");
+    const socialLinks = document.querySelectorAll(".social-links a");
+    const iframe = document.getElementById("social-preview");
 
     function showSection(sectionId) {
       sections.forEach((section) => section.classList.remove("active"));
@@ -246,19 +251,16 @@
       });
     });
 
-    // Social Media Preview feature
-    const socialLinks = document.querySelectorAll(".social-links a");
-    const iframe = document.getElementById("preview-frame");
-
-    socialLinks.forEach(link => {
-      link.addEventListener("click", function(e) {
+    // Social Media iframe preview
+    socialLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const url = this.getAttribute("data-url");
+        const url = link.getAttribute("data-url");
         iframe.src = url;
+        iframe.style.display = "block";
       });
     });
 
-    // Default
     showSection("profile");
   </script>
 </body>
