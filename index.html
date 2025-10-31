@@ -10,9 +10,19 @@
 </head>
 <body>
 
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <h2 class="logo">Jeremie<span>Salonga</span></h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- HEADER SECTION -->
   <header>
-    <div class="container">
+    <div class="container fade-in">
       <img src="your-profile.jpg" alt="Jeremie Salonga" class="profile-pic">
       <h1>Jeremie Salonga</h1>
       <p class="tagline">Dreamer | Visionary | Creative Technologist</p>
@@ -26,7 +36,7 @@
   </header>
 
   <!-- ABOUT SECTION -->
-  <section id="about" class="section">
+  <section id="about" class="section fade-in">
     <h2>About Me</h2>
     <p>
       Hi! I'm Jeremie — a passionate creative and aspiring technologist. 
@@ -36,7 +46,7 @@
   </section>
 
   <!-- PROJECTS SECTION -->
-  <section id="projects" class="section">
+  <section id="projects" class="section fade-in">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
@@ -55,7 +65,7 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="section contact">
+  <section id="contact" class="section fade-in contact">
     <h2>Contact Me</h2>
     <p>Let’s collaborate or talk about creative ideas!</p>
     <a href="mailto:jeremie@email.com" class="contact-btn">Send a Message</a>
@@ -65,6 +75,32 @@
   <footer>
     <p>© 2025 Jeremie Salonga. All rights reserved.</p>
   </footer>
+
+  <!-- SMOOTH SCROLL & ANIMATION SCRIPT -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Fade-in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', fadeInOnScroll);
+    fadeInOnScroll();
+  </script>
 
 </body>
 </html>
