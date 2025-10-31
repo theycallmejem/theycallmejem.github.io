@@ -1,0 +1,28 @@
+/* style.css */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  color: #333;
+  text-align: center;
+  padding-top: 100px;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  color: #222;
+}
+
+p {
+  font-size: 20px;
+  color: #444;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+}
