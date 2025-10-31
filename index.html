@@ -1,287 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Website</title>
-    <!-- Font Awesome for social media icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-      }
-      header {
-        background-color: #fff;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      nav ul {
-        list-style: none;
-        padding: 0;
-      }
-      nav ul li {
-        display: inline;
-        margin: 0 15px;
-      }
-      nav a {
-        text-decoration: none;
-        color: #007bff;
-        padding: 10px 15px;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-      }
-      nav a:hover,
-      nav a.active {
-        background-color: #e9ecef;
-        color: #0056b3;
-      }
-      main {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      section {
-        display: none;
-        margin-bottom: 40px;
-      }
-      section.active {
-        display: block;
-      }
-      h1,
-      h2,
-      h3 {
-        color: #333;
-      }
-      img {
-        border-radius: 50%;
-        margin: 10px 0;
-        object-fit: cover;
-        height: 200px;
-        width: 200px;
-      }
-      .profile-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-      .profile-text {
-        flex: 1;
-      }
-      .social-links {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .social-links li {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-      }
-      .social-links a {
-        text-decoration: none;
-        color: #007bff;
-        transition: color 0.3s;
-        display: flex;
-        align-items: center;
-      }
-      .social-links a:hover {
-        color: #0056b3;
-      }
-      .social-links i {
-        margin-right: 8px;
-        font-size: 22px;
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-      label {
-        margin-top: 10px;
-      }
-      input,
-      textarea {
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        margin-top: 15px;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-        color: #666;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
+  <!-- Font Awesome for social media icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #e9ecef;
+      color: #0056b3;
+    }
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    section {
+      display: none;
+      margin-bottom: 40px;
+    }
+    section.active {
+      display: block;
+    }
+    h1,
+    h2,
+    h3 {
+      color: #333;
+    }
+    img {
+      border-radius: 50%;
+      margin: 10px 0;
+      object-fit: cover;
+      height: 200px;
+      width: 200px;
+    }
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .profile-text {
+      flex: 1;
+    }
+    .social-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .social-links li {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .social-links a:hover {
+      color: #0056b3;
+    }
+    .social-links i {
+      margin-right: 8px;
+      font-size: 22px;
+    }
+    #social-preview {
+      margin-top: 30px;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+    }
+    input,
+    textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      color: #666;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-    <header>
-      <h1>Welcome to My Website</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#profile" class="nav-link active" data-section="profile"
-              >Profile</a
-            >
-          </li>
-          <li>
-            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-          </li>
-          <li>
-            <a href="#social" class="nav-link" data-section="social"
-              >Social Media</a
-            >
-          </li>
-          <li>
-            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#profile" class="nav-link active" data-section="profile">Profile</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#social" class="nav-link" data-section="social">Social Media</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <section id="profile" class="active">
-        <h2>My Profile</h2>
-        <div class="profile-info">
-          <!-- Updated profile picture with attached image -->
-          <img src="profile-photo.jpg" alt="Profile Photo" />
-          <div class="profile-text">
-            <p>
-              Hi, I'm [Your Name]. [Brief bio about yourself, skills, interests,
-              etc.]
-            </p>
-            <ul>
-              <li><strong>Location:</strong> [Your Location]</li>
-              <li><strong>Occupation:</strong> [Your Job/Role]</li>
-              <li><strong>Interests:</strong> [List interests]</li>
-            </ul>
-          </div>
+  <main>
+    <section id="profile" class="active">
+      <h2>My Profile</h2>
+      <div class="profile-info">
+        <img src="profile-photo.jpg" alt="Profile Photo" />
+        <div class="profile-text">
+          <p>Hi, I'm Jeremie Salonga. I'm an IT student, creative, and visionary with passion in technology and multimedia design.</p>
+          <ul>
+            <li><strong>Location:</strong> San Mateo, Rizal</li>
+            <li><strong>Occupation:</strong> BSIT Student</li>
+            <li><strong>Interests:</strong> Web Development, Design, Music, and Visual Arts</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="projects">
-        <h2>My Projects</h2>
-        <article>
-          <h3>Project 1: [Project Name]</h3>
-          <p>
-            Description of the project. [Add details, technologies used, links,
-            etc.]
-          </p>
-          <a href="[Project Link]">View Project</a>
-        </article>
-        <article>
-          <h3>Project 2: [Project Name]</h3>
-          <p>
-            Description of the project. [Add details, technologies used, links,
-            etc.]
-          </p>
-          <a href="[Project Link]">View Project</a>
-        </article>
-        <!-- Add more <article> elements for additional projects -->
-      </section>
+    <section id="projects">
+      <h2>My Projects</h2>
+      <article>
+        <h3>Project 1: Internmizing</h3>
+        <p>A mobile-based internship tracking system for PUP San Juan Campus.</p>
+        <a href="#">View Project</a>
+      </article>
+    </section>
 
-      <section id="social">
-        <h2>Social Media Accounts</h2>
-        <p>Connect with me on social media:</p>
-        <ul class="social-links">
-          <!-- Removed Twitter icon and replaced label with "X" text link -->
-          <li>
-            <a href="[X URL]" aria-label="X social media">
-              <span style="font-weight: bold; font-size: 22px;">X</span>
-            </a>
-          </li>
-          <li>
-            <a href="[LinkedIn URL]" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="[GitHub URL]" aria-label="GitHub">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </li>
-          <li>
-            <a href="[Instagram URL]" aria-label="Instagram">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </li>
-          <li>
-            <a href="[Facebook URL]" aria-label="Facebook">
-              <i class="fab fa-facebook"></i> Facebook
-            </a>
-          </li>
-          <li>
-            <a href="[TikTok URL]" aria-label="TikTok">
-              <i class="fab fa-tiktok"></i> TikTok
-            </a>
-          </li>
-        </ul>
-      </section>
+    <section id="social">
+      <h2>Social Media Accounts</h2>
+      <p>Connect with me on social media:</p>
+      <ul class="social-links">
+        <li><a data-url="https://x.com/eyyy_jem?t=twrThZxXEhQyrCwv-nJoFA&s=09"><span style="font-weight: bold; font-size: 22px;">X</span></a></li>
+        <li><a data-url="https://www.linkedin.com/in/jeremie-salonga-b9768b375/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a data-url="https://github.com/theycallmejem"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a data-url="https://www.instagram.com/jem.xcx?igsh=MTIwODFpNjR0c2h2dA=="><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a data-url="https://www.facebook.com/share/1H3MAAb1PW/"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a data-url="https://www.tiktok.com/@jemlangtopre?_r=1&_t=ZS-910qwAQPJdn"><i class="fab fa-tiktok"></i> TikTok</a></li>
+      </ul>
 
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
-    </main>
+      <!-- Preview Frame -->
+      <div id="social-preview">
+        <p style="color:#555;">Click a social media icon to view profile preview below 👇</p>
+        <iframe id="preview-frame" src=""></iframe>
+      </div>
+    </section>
 
-    <footer>
-      <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 
-    <script>
-      const navLinks = document.querySelectorAll(".nav-link");
-      const sections = document.querySelectorAll("section");
+  <footer>
+    <p>&copy; 2025 Jeremie Salonga. All rights reserved.</p>
+  </footer>
 
-      function showSection(sectionId) {
-        sections.forEach((section) => section.classList.remove("active"));
-        document.getElementById(sectionId).classList.add("active");
-        navLinks.forEach((link) => link.classList.remove("active"));
-        document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
-      }
+  <script>
+    // Navigation system
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section");
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const sectionId = this.getAttribute("data-section");
-          showSection(sectionId);
-        });
+    function showSection(sectionId) {
+      sections.forEach((section) => section.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+      navLinks.forEach((link) => link.classList.remove("active"));
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const sectionId = this.getAttribute("data-section");
+        showSection(sectionId);
       });
+    });
 
-      showSection("profile");
-    </script>
-  </body>
+    // Social Media Preview feature
+    const socialLinks = document.querySelectorAll(".social-links a");
+    const iframe = document.getElementById("preview-frame");
+
+    socialLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const url = this.getAttribute("data-url");
+        iframe.src = url;
+      });
+    });
+
+    // Default
+    showSection("profile");
+  </script>
+</body>
 </html>
