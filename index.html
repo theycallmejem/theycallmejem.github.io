@@ -91,6 +91,7 @@
       display: block;
       opacity: 1;
       transform: translateY(0);
+      animation: fadeIn 1s ease-out;
     }
 
     h2 {
@@ -286,6 +287,18 @@
       color: #666;
     }
 
+    /* ====== FADE-IN ANIMATION ====== */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       main {
@@ -301,19 +314,19 @@
 </head>
 
 <body>
-  <header>
+  <header class="fade-in">
     <h1>Jeremie Salonga</h1>
     <p>INFP • Dreamer • Visionary • IT Student</p>
   </header>
 
-  <nav>
+  <nav class="fade-in">
     <a href="#" class="nav-link active" data-section="profile">Profile</a>
     <a href="#" class="nav-link" data-section="projects">Projects</a>
     <a href="#" class="nav-link" data-section="social">Social Media</a>
     <a href="#" class="nav-link" data-section="contact">Contact</a>
   </nav>
 
-  <main>
+  <main class="fade-in">
     <!-- Profile Section -->
     <section id="profile" class="section active">
       <h2>My Profile</h2>
@@ -322,7 +335,6 @@
           <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
         </label>
         <input type="file" id="uploadInput" accept="image/*" style="display:none;">
-        
 
         <div class="profile-text">
           <p>Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at PUP San Juan Campus, who enjoys combining creativity with technology.</p>
@@ -335,20 +347,20 @@
         <div class="badges-group">
           <h3>Skills</h3>
           <ul class="badges-list">
-             <li class="badge" data-tooltip="Crafting visuals that pop!"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
-              <li class="badge" data-tooltip="Tech-savvy and always learning!"><i class="fas fa-laptop"></i> Computer Literate</li>
-              <li class="badge" data-tooltip="Turning challenges into solutions!"><i class="fas fa-brain"></i> Problem-Solving</li>
-              <li class="badge" data-tooltip="Guiding teams to success!"><i class="fas fa-users"></i> Leadership</li>
+             <li class="badge"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
+              <li class="badge"><i class="fas fa-laptop"></i> Computer Literate</li>
+              <li class="badge"><i class="fas fa-brain"></i> Problem-Solving</li>
+              <li class="badge"><i class="fas fa-users"></i> Leadership</li>
           </ul>
         </div>
 
         <div class="badges-group">
           <h3>Personality</h3>
           <ul class="badges-list">
-             <li class="badge" data-tooltip="Dreaming big!"><i class="fas fa-star"></i> Idealistic</li>
-              <li class="badge" data-tooltip="Spreading kindness!"><i class="fas fa-heart"></i> Kind-Hearted</li>
-              <li class="badge" data-tooltip="Seeing the bright side!"><i class="fas fa-sun"></i> Optimistic</li>
-              <li class="badge" data-tooltip="Thinking deeply!"><
+             <li class="badge"><i class="fas fa-star"></i> Idealistic</li>
+              <li class="badge"><i class="fas fa-heart"></i> Kind-Hearted</li>
+              <li class="badge"><i class="fas fa-sun"></i> Optimistic</li>
+              <li class="badge"><i class="fas fa-book"></i> Thoughtful</li>
           </ul>
         </div>
       </div>
@@ -400,7 +412,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="fade-in">
     <p>&copy; 2025 Jeremie Salonga. All rights reserved.</p>
   </footer>
 
