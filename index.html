@@ -101,17 +101,35 @@
       flex-wrap: wrap;
     }
 
-    img {
+    .profile-pic-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    #profilePic {
       border-radius: 50%;
       object-fit: cover;
       height: 200px;
       width: 200px;
       box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    img:hover {
+    #profilePic:hover {
       transform: scale(1.05);
+      opacity: 0.8;
+    }
+
+    #uploadInput {
+      display: none;
+    }
+
+    .upload-hint {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
     }
 
     .profile-text p {
@@ -266,7 +284,13 @@
     <section id="profile" class="active fade-in">
       <h2>My Profile</h2>
       <div class="profile-info">
-        <img src="profile-photo.jpg" alt="Profile Photo" />
+        <div class="profile-pic-container">
+          <label for="uploadInput">
+            <img id="profilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Photo" />
+          </label>
+          <input type="file" id="uploadInput" accept="image/*" />
+          <p class="upload-hint">Click the image to upload your picture</p>
+        </div>
         <div class="profile-text">
           <p>
             Hi, I'm <strong>[Your Name]</strong>. A creative and passionate individual who loves technology, design, and storytelling.
@@ -300,7 +324,7 @@
       <ul class="social-links">
         <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
         <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-X"></i> X </a></li>
+        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-x-twitter"></i> X (Twitter)</a></li>
         <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
         <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
@@ -326,6 +350,7 @@
   </footer>
 
   <script>
+    // ====== SECTION NAVIGATION ======
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll("section");
 
@@ -348,6 +373,30 @@
         const sectionId = this.getAttribute("data-section");
         showSection(sectionId);
       });
+    });
+
+    // ====== PROFILE PICTURE UPLOAD ======
+    const uploadInput = document.getElementById("uploadInput");
+    const profilePic = document.getElementById("profilePic");
+
+    uploadInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePic.src = e.target.result;
+          localStorage.setItem("profileImage", e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Load saved profile image on page load
+    window.addEventListener("load", () => {
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        profilePic.src = savedImage;
+      }
     });
   </script>
 </body>
