@@ -186,6 +186,36 @@
       box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     }
 
+    /* ====== EDUCATION SECTION ====== */
+    .education-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .education-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .education-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .education-item h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    .education-item p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
     /* ====== PROJECTS SECTION ====== */
     article {
       background: #f8f9fa;
@@ -306,11 +336,12 @@
 <body>
   <header>
     <h1>Jeremie Salonga</h1>
-    <p>INFP • Dreamer • Visionary • IT Student</p>
+    <p>INFP-A • Dreamer • Visionary • IT Student</p>
   </header>
 
   <nav>
     <a href="#" class="nav-link active" data-section="profile">Profile</a>
+    <a href="#" class="nav-link" data-section="education">Education</a>
     <a href="#" class="nav-link" data-section="projects">Projects</a>
     <a href="#" class="nav-link" data-section="social">Social Media</a>
     <a href="#" class="nav-link" data-section="contact">Contact</a>
@@ -354,6 +385,26 @@
             <li class="badge"><i class="fas fa-sun"></i> Optimistic</li>
             <li class="badge"><i class="fas fa-lightbulb"></i> Thoughtful</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="education-section">
+        <div class="education-item">
+          <h3>Primary</h3>
+          <p>Silangan Elementary School (2010-2015)</p>
+        </div>
+        <div class="education-item">
+          <h3>Secondary</h3>
+          <p>Silangan National High School (2015-2019)</p>
+          <p>Pamantasan ng Lungsod ng Marikina (2019-2021)</p>
+        </div>
+        <div class="education-item">
+          <h3>Tertiary</h3>
+          <p>Polytechnic University of the Philippines - San Juan Campus (September 2022 - Present)</p>
         </div>
       </div>
     </section>
