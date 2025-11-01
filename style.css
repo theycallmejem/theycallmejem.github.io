@@ -118,6 +118,15 @@ h2 {
   line-height: 1.7;
 }
 
+/* ====== TEXT ALIGNMENT CLASSES ====== */
+.justify-text {
+  text-align: justify;
+}
+
+.left-text {
+  text-align: left;
+}
+
 /* ====== BADGES ====== */
 .badges-section {
   display: flex;
@@ -278,7 +287,6 @@ footer {
     margin: 20px;
     padding: 20px;
   }
-
   .badges-section {
     flex-direction: column;
     gap: 20px;
