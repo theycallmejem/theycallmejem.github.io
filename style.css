@@ -1,7 +1,7 @@
 /* ====== GENERAL STYLES ====== */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #b2cbd6ff 0%, #0f3853ff 100%);
   color: #333;
   margin: 0;
   padding: 0;
@@ -9,17 +9,19 @@ body {
   overflow-x: hidden;
 }
 
+/* ====== HEADER ====== */
 header {
   text-align: center;
   padding: 25px 20px;
-  background-color: #007bff;
+  background: linear-gradient(135deg, #b2cbd6ff 0%, #0f3853ff 100%);
   color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
   margin: 5px 0;
-  font-size: 2em;
+  font-size: 3em; /* Increased size */
+  font-family: 'TT Moons', sans-serif; /* Changed to TT Moons font */
 }
 
 header p {
@@ -33,9 +35,9 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #0f3853ff 0%, #042c47ff 100%);
   padding: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(75, 68, 68, 0.05);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -43,7 +45,7 @@ nav {
 
 .nav-link {
   text-decoration: none;
-  color: #333;
+  color: #f3f0f0ff;
   font-weight: 600;
   padding: 10px 18px;
   border-radius: 8px;
@@ -52,8 +54,8 @@ nav {
 
 .nav-link:hover,
 .nav-link.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #2c81b9ff;
+  color: #ffffffff;
 }
 
 /* ====== MAIN CONTENT ====== */
@@ -61,7 +63,7 @@ main {
   max-width: 1000px;
   margin: 40px auto;
   padding: 30px;
-  background: white;
+  background: lightgray;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
@@ -81,7 +83,7 @@ section.active {
 
 h2 {
   text-align: center;
-  color: #007bff;
+  color: #333d47ff;
   margin-bottom: 25px;
   font-size: 1.8em;
 }
@@ -118,12 +120,15 @@ h2 {
   line-height: 1.7;
 }
 
-/* ====== TEXT ALIGNMENT CLASSES ====== */
 .justify-text {
   text-align: justify;
 }
 
 .left-text {
+  text-align: left;
+}
+
+#profile h2 {
   text-align: left;
 }
 
@@ -143,7 +148,7 @@ h2 {
 
 .badges-group h3 {
   text-align: center;
-  color: #007bff;
+  color: #333d47ff;
   margin-bottom: 15px;
 }
 
@@ -158,7 +163,7 @@ h2 {
 
 .badge {
   background: #fff;
-  border: 2px solid #007bff;
+  border: 2px solid #0d223aff;
   border-radius: 25px;
   padding: 8px 15px;
   display: flex;
@@ -172,10 +177,40 @@ h2 {
 }
 
 .badge:hover {
-  background: #007bff;
-  color: #fff;
+  background: #00263fff;
+  color: #ffffffff;
   transform: scale(1.1);
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* ====== EDUCATION SECTION ====== */
+.education-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+}
+
+.education-item h3 {
+  color: #042c47ff;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.education-item p {
+  margin: 5px 0;
+  line-height: 1.6;
 }
 
 /* ====== PROJECTS SECTION ====== */
@@ -190,6 +225,12 @@ article {
 
 article:hover {
   transform: translateY(-5px);
+}
+
+article h3 {
+  color: #042c47ff;
+  margin-bottom: 10px;
+  font-size: 1.4em;
 }
 
 article a {
@@ -220,7 +261,7 @@ article a:hover {
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: #007bff;
+  color: #042c47ff;
   background: #f1f3f5;
   padding: 10px 15px;
   border-radius: 8px;
@@ -234,47 +275,37 @@ article a:hover {
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
 }
 
-/* ====== CONTACT FORM ====== */
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: auto;
+/* ====== LICENSES & CERTIFICATIONS SECTION ====== */
+.certifications-section {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-input,
-textarea {
-  padding: 12px;
-  margin-top: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: border-color 0.3s;
-  font-family: inherit;
+.certification-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #007bff;
-  outline: none;
+.certification-item:hover {
+  transform: translateY(-5px);
 }
 
-button {
-  margin-top: 15px;
-  padding: 12px;
-  background: linear-gradient(45deg, #007bff, #00c6ff);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s;
+.certification-item h3 {
+  color: #042c47ff;
+  margin-bottom: 10px;
+  font-size: 1.4em;
 }
 
-button:hover {
-  background: linear-gradient(45deg, #0056b3, #0099cc);
-  transform: translateY(-2px);
+.certification-item p {
+  margin: 5px 0;
+  line-height: 1.6;
 }
 
+/* ====== FOOTER ====== */
 footer {
   text-align: center;
   margin: 50px 0 20px;
