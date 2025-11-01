@@ -314,6 +314,23 @@
       line-height: 1.6;
     }
 
+    .cert-upload {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    .view-cert {
+      display: none;
+      margin-top: 10px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .view-cert:hover {
+      color: #0056b3;
+    }
+
     footer {
       text-align: center;
       margin: 50px 0 20px;
@@ -444,20 +461,26 @@
     <section id="licenses" class="section">
       <h2>Licenses & Certifications</h2>
       <div class="certifications-section">
-        <div class="certification-item">
+        <div class="certification-item" id="cert1">
           <h3>Cyber Threat Management at Cisco</h3>
           <p>Issued Jun 2025</p>
           <p>Credential ID: 239d086e-700e-464c-9211-254b9fc988e3</p>
+          <input type="file" class="cert-upload" id="uploadCert1" accept="application/pdf">
+          <a href="#" class="view-cert" id="viewCert1" target="_blank">View Certificate</a>
         </div>
-        <div class="certification-item">
+        <div class="certification-item" id="cert2">
           <h3>Introduction to Cybersecurity at Cisco</h3>
           <p>Issued Apr 2025</p>
           <p>Credential ID: 69fb8b07-bf04-4f46-9a8f-b411190287be</p>
+          <input type="file" class="cert-upload" id="uploadCert2" accept="application/pdf">
+          <a href="#" class="view-cert" id="viewCert2" target="_blank">View Certificate</a>
         </div>
-        <div class="certification-item">
+        <div class="certification-item" id="cert3">
           <h3>Networking Basics at Cisco</h3>
           <p>Issued Feb 2024</p>
           <p>Credential ID: 46217f17-4d87-4f65-8335-25bc38a4bee4</p>
+          <input type="file" class="cert-upload" id="uploadCert3" accept="application/pdf">
+          <a href="#" class="view-cert" id="viewCert3" target="_blank">View Certificate</a>
         </div>
       </div>
     </section>
@@ -477,36 +500,4 @@
       document.getElementById(sectionId).classList.add("active");
 
       navLinks.forEach(link => link.classList.remove("active"));
-      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        showSection(link.getAttribute("data-section"));
-      });
-    });
-
-    // Profile picture upload
-    const uploadInput = document.getElementById("uploadInput");
-    const profilePic = document.getElementById("profilePic");
-
-    uploadInput.addEventListener("change", function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          profilePic.src = e.target.result;
-          localStorage.setItem("profileImage", e.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    window.addEventListener("load", () => {
-      const savedImage = localStorage.getItem("profileImage");
-      if (savedImage) profilePic.src = savedImage;
-    });
-  </script>
-</body>
-</html>
+      document.querySelector(`[data-section="${sectionId}"]
