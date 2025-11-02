@@ -406,28 +406,104 @@
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div class="education-section">
-        <div class="education-item">
-          <h3><i class="fas fa-school"></i> Primary</h3>
-          <p>Silangan Elementary School (2010-2015)</p>
-        </div>
-        <div class="education-item">
-          <h3><i class="fas fa-book"></i> Secondary</h3>
-          <p>Silangan National High School (2015-2019)</p>
-        </div>
-        <div class="education-item">
-          <h3><i class="fas fa-building"></i> Senior High School</h3>
-          <p>Pamantasan ng Lungsod ng Marikina (2019-2021)</p>
-        </div>
-        <div class="education-item">
-          <h3><i class="fas fa-university"></i> Tertiary</h3>
-          <p>Polytechnic University of the Philippines - San Juan Campus (September 2022 - Present)</p>
-        </div>
+    <!-- Education Section (HTML only; images shown on the right, no feature lists) -->
+<section id="education" class="section">
+  <style>
+    /* Scoped styles for the education section (images on right, no feature lists) */
+    #education { padding: 1.25rem; font-family: inherit; }
+    #education h2 { display:flex; align-items:center; gap:0.5rem; margin:0 0 0.75rem 0; font-size:1.25rem; }
+    .education-section { display:flex; flex-direction:column; gap:0.9rem; }
+    .education-item {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      background: rgba(0,0,0,0.04);
+      padding:0.75rem;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .education-content { flex:1 1 auto; min-width:0; }
+    .education-content h3 { margin:0 0 0.25rem 0; font-size:1rem; display:flex; align-items:center; gap:0.5rem; }
+    .education-content p { margin:0; color: #666; font-size:0.95rem; }
+
+    /* Right-side image container */
+    .education-image {
+      flex:0 0 auto;
+      width:88px;
+      height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:8px;
+      overflow:hidden;
+      background: rgba(255,255,255,0.02);
+      border:1px solid rgba(0,0,0,0.06);
+      padding:6px;
+    }
+    .education-image img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    /* Responsive: stack on small screens and reduce image */
+    @media (max-width:720px){
+      .education-item { flex-direction:column; align-items:flex-start; }
+      .education-image { width:56px; height:56px; margin-top:0.5rem; }
+      #education h2 { font-size:1.1rem; }
+    }
+    @media (max-width:360px){
+      .education-image { width:48px; height:48px; padding:4px; }
+      .education-item { padding:0.5rem; }
+    }
+  </style>
+
+  <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
+
+  <div class="education-section">
+    <div class="education-item">
+      <div class="education-content">
+        <h3><i class="fas fa-school" aria-hidden="true"></i> Primary</h3>
+        <p>Silangan Elementary School (2010-2015)</p>
       </div>
-    </section>
+      <div class="education-image" aria-hidden="false">
+        <img src="Elem.png" alt="Silangan Elementary School logo" />
+      </div>
+    </div>
+
+    <div class="education-item">
+      <div class="education-content">
+        <h3><i class="fas fa-book" aria-hidden="true"></i> Secondary</h3>
+        <p>Silangan National High School (2015-2019)</p>
+      </div>
+      <div class="education-image" aria-hidden="false">
+        <img src="Snhs.png" alt="Silangan National High School logo" />
+      </div>
+    </div>
+
+    <div class="education-item">
+      <div class="education-content">
+        <h3><i class="fas fa-building" aria-hidden="true"></i> Senior High School</h3>
+        <p>Pamantasan ng Lungsod ng Marikina (2019-2021)</p>
+      </div>
+      <div class="education-image" aria-hidden="false">
+        <img src="Plmar.png" alt="Pamantasan ng Lungsod ng Marikina logo" />
+      </div>
+    </div>
+
+    <div class="education-item">
+      <div class="education-content">
+        <h3><i class="fas fa-university" aria-hidden="true"></i> Tertiary</h3>
+        <p>Polytechnic University of the Philippines - San Juan Campus (September 2022 - Present)</p>
+      </div>
+      <div class="education-image" aria-hidden="false">
+        <img src="Pupsj.png" alt="Polytechnic University of the Philippines logo" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
