@@ -406,15 +406,23 @@
       </div>
     </section>
 
-    <!-- Education Section (HTML only; images shown on the right, no feature lists) -->
+    <!-- Education Section (HTML only; images stay on the right on all screen sizes) -->
 <section id="education" class="section">
   <style>
-    /* Scoped styles for the education section (images on right, no feature lists) */
+    /* Scoped styles for the education section (images fixed on the right, responsive sizing) */
     #education { padding: 1.25rem; font-family: inherit; }
     #education h2 { display:flex; align-items:center; gap:0.5rem; margin:0 0 0.75rem 0; font-size:1.25rem; }
-    .education-section { display:flex; flex-direction:column; gap:0.9rem; }
+
+    .education-section {
+      display:flex;
+      flex-direction:column;
+      gap:0.9rem;
+    }
+
+    /* Each item keeps a horizontal layout. The content area can shrink, the image stays on the right. */
     .education-item {
       display:flex;
+      flex-direction:row;            /* keep items in a row on all viewports */
       align-items:center;
       justify-content:space-between;
       gap:1rem;
@@ -422,16 +430,38 @@
       padding:0.75rem;
       border-radius:10px;
       border:1px solid rgba(0,0,0,0.06);
+      min-width: 0;                 /* allow flex children to shrink properly */
     }
-    .education-content { flex:1 1 auto; min-width:0; }
-    .education-content h3 { margin:0 0 0.25rem 0; font-size:1rem; display:flex; align-items:center; gap:0.5rem; }
-    .education-content p { margin:0; color: #666; font-size:0.95rem; }
 
-    /* Right-side image container */
+    /* Content area: allow shrinking and wrapping without pushing the image down */
+    .education-content {
+      flex: 1 1 auto;               /* grow and shrink as needed */
+      min-width: 0;                 /* important for text truncation in flex containers */
+      overflow: hidden;
+    }
+    .education-content h3 {
+      margin:0 0 0.25rem 0;
+      font-size:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      white-space: nowrap;          /* keep title on a single line if possible */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .education-content p {
+      margin:0;
+      color: #666;
+      font-size:0.95rem;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+    /* Right-side image container stays fixed in the layout */
     .education-image {
-      flex:0 0 auto;
-      width:88px;
-      height:88px;
+      flex: 0 0 auto;               /* do not let the image grow or shrink below the CSS width */
+      width: clamp(48px, 11vw, 88px); /* responsive: min 48px, up to 88px, scales with viewport */
+      height: clamp(48px, 11vw, 88px);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -440,6 +470,7 @@
       background: rgba(255,255,255,0.02);
       border:1px solid rgba(0,0,0,0.06);
       padding:6px;
+      margin-left: 0.5rem;
     }
     .education-image img {
       width:100%;
@@ -448,16 +479,21 @@
       display:block;
     }
 
-    /* Responsive: stack on small screens and reduce image */
-    @media (max-width:720px){
-      .education-item { flex-direction:column; align-items:flex-start; }
-      .education-image { width:56px; height:56px; margin-top:0.5rem; }
-      #education h2 { font-size:1.1rem; }
+    /* Small adjustments for very narrow screens:
+       - Reduce side padding on the item
+       - Keep the horizontal layout but slightly reduce gaps and font-size so content and image fit */
+    @media (max-width:420px) {
+      .education-item {
+        padding:0.5rem;
+        gap:0.6rem;
+      }
+      .education-content h3 { font-size:0.95rem; }
+      .education-content p { font-size:0.9rem; }
+      .education-image { padding:4px; }
     }
-    @media (max-width:360px){
-      .education-image { width:48px; height:48px; padding:4px; }
-      .education-item { padding:0.5rem; }
-    }
+
+    /* Optional: ensure long school names don't push the image out of view.
+       We let the content take remaining space and show ellipsis on the H3 if needed. */
   </style>
 
   <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
