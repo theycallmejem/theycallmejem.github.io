@@ -406,12 +406,12 @@
       </div>
     </section>
 
-    <!-- Education Section (HTML only; images stay on the right on all screen sizes) -->
+   <!-- Education Section (HTML only; boxes use white background) -->
 <section id="education" class="section">
   <style>
-    /* Scoped styles for the education section (images fixed on the right, responsive sizing) */
+    /* Scoped styles for the education section (white boxes, images on right) */
     #education { padding: 1.25rem; font-family: inherit; }
-    #education h2 { display:flex; align-items:center; gap:0.5rem; margin:0 0 0.75rem 0; font-size:1.25rem; }
+    #education h2 { display:flex; align-items:center; gap:0.5rem; margin:0 0 0.75rem 0; font-size:1.25rem; color:#111; }
 
     .education-section {
       display:flex;
@@ -422,21 +422,22 @@
     /* Each item keeps a horizontal layout. The content area can shrink, the image stays on the right. */
     .education-item {
       display:flex;
-      flex-direction:row;            /* keep items in a row on all viewports */
+      flex-direction:row;
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-      background: rgba(0,0,0,0.04);
+      background: #ffffff;                 /* white box background */
       padding:0.75rem;
       border-radius:10px;
-      border:1px solid rgba(0,0,0,0.06);
-      min-width: 0;                 /* allow flex children to shrink properly */
+      border:1px solid rgba(0,0,0,0.08);  /* subtle border */
+      min-width: 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
 
     /* Content area: allow shrinking and wrapping without pushing the image down */
     .education-content {
-      flex: 1 1 auto;               /* grow and shrink as needed */
-      min-width: 0;                 /* important for text truncation in flex containers */
+      flex: 1 1 auto;
+      min-width: 0;
       overflow: hidden;
     }
     .education-content h3 {
@@ -445,29 +446,30 @@
       display:flex;
       align-items:center;
       gap:0.5rem;
-      white-space: nowrap;          /* keep title on a single line if possible */
+      color:#111;
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .education-content p {
       margin:0;
-      color: #666;
+      color: #333;
       font-size:0.95rem;
       white-space: normal;
       word-wrap: break-word;
     }
 
-    /* Right-side image container stays fixed in the layout */
+    /* Right-side image container */
     .education-image {
-      flex: 0 0 auto;               /* do not let the image grow or shrink below the CSS width */
-      width: clamp(48px, 11vw, 88px); /* responsive: min 48px, up to 88px, scales with viewport */
+      flex: 0 0 auto;
+      width: clamp(48px, 11vw, 88px);
       height: clamp(48px, 11vw, 88px);
       display:flex;
       align-items:center;
       justify-content:center;
       border-radius:8px;
       overflow:hidden;
-      background: rgba(255,255,255,0.02);
+      background: #f7f7f7;
       border:1px solid rgba(0,0,0,0.06);
       padding:6px;
       margin-left: 0.5rem;
@@ -479,9 +481,7 @@
       display:block;
     }
 
-    /* Small adjustments for very narrow screens:
-       - Reduce side padding on the item
-       - Keep the horizontal layout but slightly reduce gaps and font-size so content and image fit */
+    /* Small adjustments for very narrow screens */
     @media (max-width:420px) {
       .education-item {
         padding:0.5rem;
@@ -491,9 +491,6 @@
       .education-content p { font-size:0.9rem; }
       .education-image { padding:4px; }
     }
-
-    /* Optional: ensure long school names don't push the image out of view.
-       We let the content take remaining space and show ellipsis on the H3 if needed. */
   </style>
 
   <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
