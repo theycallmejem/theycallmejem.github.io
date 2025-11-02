@@ -406,7 +406,7 @@
       </div>
     </section>
 
-   <!-- Education Section (HTML only; boxes use white background) -->
+<!-- Education Section (HTML only; boxes use white background) -->
 <section id="education" class="section">
   <style>
     /* Scoped styles for the education section (white boxes, images on right) */
@@ -469,7 +469,10 @@
       justify-content:center;
       border-radius:8px;
       overflow:hidden;
-      background: #f7f7f7;
+      /* Make the container transparent so only the PNG pixels show.
+         If the PNG itself has an opaque background it will still show —
+         the image file must have transparency for this to work. */
+      background: transparent;
       border:1px solid rgba(0,0,0,0.06);
       padding:6px;
       margin-left: 0.5rem;
@@ -479,6 +482,8 @@
       height:100%;
       object-fit:contain;
       display:block;
+      /* Ensure the image background is not forced by CSS */
+      background: transparent;
     }
 
     /* Small adjustments for very narrow screens */
@@ -502,7 +507,6 @@
         <p>Silangan Elementary School (2010-2015)</p>
       </div>
       <div class="education-image" aria-hidden="false">
-        <!-- After processing, replace Elem.png with Elem.transparent.png -->
         <img src="Elem.png" alt="Silangan Elementary School logo" />
       </div>
     </div>
