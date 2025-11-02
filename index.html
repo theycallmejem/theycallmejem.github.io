@@ -459,7 +459,11 @@
       word-wrap: break-word;
     }
 
-    /* Right-side image container */
+    /* Right-side image container
+       - Removed visible border and padding so there is no lining/edge between PNG and surrounding.
+       - Make container background fully transparent.
+       - If you still see a line, the PNG files likely include that line baked into the image and must be edited to remove it
+         (re-export with transparency and without the line). */
     .education-image {
       flex: 0 0 auto;
       width: clamp(48px, 11vw, 88px);
@@ -469,12 +473,10 @@
       justify-content:center;
       border-radius:8px;
       overflow:hidden;
-      /* Make the container transparent so only the PNG pixels show.
-         If the PNG itself has an opaque background it will still show —
-         the image file must have transparency for this to work. */
-      background: transparent;
-      border:1px solid rgba(0,0,0,0.06);
-      padding:6px;
+      background: transparent; /* transparent container so only PNG pixels show */
+      /* remove border and padding that create visible "lining" */
+      border: none;
+      padding: 0;
       margin-left: 0.5rem;
     }
     .education-image img {
@@ -482,8 +484,19 @@
       height:100%;
       object-fit:contain;
       display:block;
-      /* Ensure the image background is not forced by CSS */
-      background: transparent;
+      background: transparent; /* ensure CSS doesn't add a background */
+      /* If the PNG still shows a rectangular outline, the outline is probably part of the image file.
+         To visually avoid seams when images have faint edges, you can:
+         - use object-fit:contain and a slightly smaller scale (using transform) to inset the image,
+           or
+         - use mix-blend-mode if appropriate, but that can produce unwanted effects.
+         Examples below (comment/uncomment as needed). */
+      /* Example: slightly inset the image to hide any 1px edge baked into the PNG:
+      transform: scale(0.97);
+      */
+      /* Example: blend the image with the background (use with care):
+      mix-blend-mode: multiply;
+      */
     }
 
     /* Small adjustments for very narrow screens */
@@ -494,7 +507,7 @@
       }
       .education-content h3 { font-size:0.95rem; }
       .education-content p { font-size:0.9rem; }
-      .education-image { padding:4px; }
+      .education-image { padding:0; }
     }
   </style>
 
